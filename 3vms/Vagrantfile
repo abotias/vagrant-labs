@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+settings = YAML.load_file 'vars.yaml'
+
+Vagrant.configure("2") do |config|
+  
+  config.vm.define "vmone" do |vmone|
+    vmone.vm.box = "hashicorp/bionic64"
+    vmone.vm.hostname = settings['vmone_name']
+    vmone.vm.network "private_network", ip: settings['vmone_ip']
+    vmone.vm.provider "virtualbox" do |vb_vmone|
+      vb_vmone.name = settings['vmone_name']
+      vb_vmone.memory = "1024"
+      vb_vmone.cpus = 2
+    end
+  end
+
+  config.vm.define "vmtwo" do |vmtwo|
+    vmtwo.vm.box = "hashicorp/bionic64"
+    vmtwo.vm.hostname = settings['vmtwo_name']
+    vmtwo.vm.network "private_network", ip: settings['vmtwo_ip']
+    vmtwo.vm.provider "virtualbox" do |vb_vmtwo|
+      vb_vmtwo.name = settings['vmtwo_name']
+      vb_vmtwo.memory = "1024"
+      vb_vmtwo.cpus = 2
+    end
+  end
+
+  config.vm.define "vmthree" do |vmthree|
+    vmthree.vm.box = "hashicorp/bionic64"
+    vmthree.vm.hostname = settings['vmthree_name']
+    vmthree.vm.network "private_network", ip: settings['vmthree_ip']
+    vmthree.vm.provider "virtualbox" do |vb_vmthree|
+      vb_vmthree.name = settings['vmthree_name']
+      vb_vmthree.memory = "1024"
+      vb_vmthree.cpus = 2
+    end
+  end
+
+end

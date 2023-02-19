@@ -1,0 +1,8 @@
+vmone_name: "vmone"
+vmone_ip: "192.168.56.11"
+
+vmtwo_name: "vmtwo"
+vmtwo_ip: "192.168.56.12"
+
+vmthree_name: "vmthree"
+vmthree_ip: "192.168.56.13"
